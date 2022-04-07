@@ -13,7 +13,6 @@ public class Main {
         Class.forName("org.sqlite.JDBC");
         Connection con = DriverManager.getConnection(
                 "jdbc:sqlite:C:\\2tc\\WisniaInsurance\\insurancesDB.sqlite"
-
         );
         Statement st = con.createStatement();
         st.execute("DROP table if exists Policy");
@@ -21,6 +20,7 @@ public class Main {
                 "policy_name text," +
                 "policy_type text" +
                 ")");
+        con.close();
         }
     }
 }
