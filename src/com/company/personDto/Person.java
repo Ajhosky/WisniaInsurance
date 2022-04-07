@@ -5,7 +5,11 @@ public class Person extends Customers {
     private String pesel;
 
     public Person(String surname, String pesel) {
-        super(//cos wpisac);
+        super(id, name, phoneNumber, address);
+        this.id = id;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
         this.surname = surname;
         this.pesel = pesel;
     }
