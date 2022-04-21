@@ -6,7 +6,7 @@ public class Company extends Customers {
     private Representative representative;
 
     public Company(Integer id, String name, String phoneNumber, com.company.personDto.address address, String NIP, String regon, Representative representative) {
-        super(id, name, phoneNumber, address);
+        super();
         this.NIP = NIP;
         this.regon = regon;
         this.representative = representative;

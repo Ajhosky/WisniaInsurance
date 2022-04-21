@@ -1,14 +1,12 @@
 package com.company.personDto;
 
-import java.math.BigDecimal;
-
-public class Customers {
+public abstract class Customers {
    protected Integer id;
    protected String name;
    protected String phoneNumber;
    protected address address;
 
-   public Customers(Integer id, String name, String phoneNumber, com.company.personDto.address address) {
+   public Customers() {
       this.id = id;
       this.name = name;
       this.phoneNumber = phoneNumber;

@@ -5,7 +5,8 @@ public class Person extends Customers {
     private String pesel;
 
     public Person(String surname, String pesel) {
-        super(id, name, phoneNumber, address);
+        super();
+        //super(id, name, phoneNumber, address);
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
