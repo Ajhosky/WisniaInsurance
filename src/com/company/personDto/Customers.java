@@ -29,4 +29,16 @@ public abstract class Customers {
    public com.company.personDto.address getAddress() {
       return address;
    }
+
+   public void setName(String name) {
+      this.name = name;
+   }
+
+   public void setPhoneNumber(String phoneNumber) {
+      this.phoneNumber = phoneNumber;
+   }
+
+   public void setAddress(com.company.personDto.address address) {
+      this.address = address;
+   }
 }
