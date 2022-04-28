@@ -4,12 +4,12 @@ public abstract class Customers {
    protected Integer id;
    protected String name;
    protected String phoneNumber;
-   protected address address;
+   protected String address;
 
    public Customers() {
       this.id = id;
       this.name = name;
-      this.phoneNumber = phoneNumber;
+      this. phoneNumber = phoneNumber;
       this.address = address;
    }
 
@@ -26,7 +26,19 @@ public abstract class Customers {
       return phoneNumber;
    }
 
-   public com.company.personDto.address getAddress() {
+   public String getAddress() {
       return address;
+   }
+
+   public void setName(String name) {
+      this.name = name;
+   }
+
+   public void setPhoneNumber(String phoneNumber) {
+      this.phoneNumber = phoneNumber;
+   }
+
+   public void setAddress(String address) {
+      this.address = address;
    }
 }
