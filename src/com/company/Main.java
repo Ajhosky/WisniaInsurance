@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.personDto.Person;
+import com.company.controlers.Connection;
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,6 +45,8 @@ public class Main {
         st.close();
         Person person = new Person("Kowalski","12312312312","Adam","123123123","Warszawa ul.zlota 32a",1);
 
+
+        // okno menu
         JPanel panel = new JPanel();
             JFrame window = new JFrame("Wisnia Insurance menu");
             window.setBounds(200,200,500,500);
@@ -54,9 +57,6 @@ public class Main {
             panel.setBackground(Color.black);
             window.add(panel);
 
-
-
-            //
 
 //        panel.setBounds(0, 0, 400, 400);
 //        panel.setBackground(Color.red);

@@ -1,5 +1,7 @@
 package com.company.controlers;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,6 +16,14 @@ public class Connection {
         Statement st = con.createStatement();
         return st;
     }
+    public void saveData(String tableName) throws SQLException, ClassNotFoundException, FileNotFoundException {
+        Statement st = Connection.connect();
+        String Data = String.valueOf(st.execute("SELECT * FROM "+ tableName));
+        PrintWriter zapis = new PrintWriter(tableName+".txt");
+        zapis.println(Data);
+        zapis.close();
+    }
+
 
 
 }
