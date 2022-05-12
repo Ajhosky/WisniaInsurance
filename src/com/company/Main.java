@@ -7,20 +7,12 @@ import java.awt.*;
 import java.sql.*;
 
 
-
-
 public class Main {
     private static String text;
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
 
-
-        Class.forName("org.sqlite.JDBC");
-        Connection con = DriverManager.getConnection(
-                "jdbc:sqlite:C:\\2tc\\WisniaInsurance\\insurancesDB.sqlite"
-        );
-        Statement st = con.createStatement();
-
+        Statement st = Connection.connect();
         //PERSON TABLE
         st.execute("DROP table if exists Person");
 
@@ -49,7 +41,7 @@ public class Main {
                 "phone varchar(12)," +
                 "address varchar(30)" +
                 ")");
-        con.close();
+        st.close();
         Person person = new Person("Kowalski","12312312312","Adam","123123123","Warszawa ul.zlota 32a",1);
 
         JPanel panel = new JPanel();

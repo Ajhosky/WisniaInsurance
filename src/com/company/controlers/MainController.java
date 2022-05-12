@@ -1,9 +1,8 @@
 package com.company.controlers;
 
-public class PersonStruct {
+public class MainController {
 
     public void saveData(String tableName){
 
     }
-
 }

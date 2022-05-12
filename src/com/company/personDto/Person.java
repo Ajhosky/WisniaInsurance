@@ -37,15 +37,17 @@ public class Person extends Customers {
 
 
 
+
     public void insertIntoDb(Person person) throws ClassNotFoundException, SQLException {
         Class.forName("org.sqlite.JDBC");
         Connection con = DriverManager.getConnection(
                 "jdbc:sqlite:C:\\2tc\\WisniaInsurance\\insurancesDB.sqlite"
         );
         Statement st = con.createStatement();
-        String PersonVales = person.getName() + ", " + person.getSurname() + ", " + person.getPhoneNumber() + ", " + person.getPesel() + ", " + person.getAddress();
+        String PersonValues = person.getName() + ", " + person.getSurname() + ", " + person.getPhoneNumber() + ", " + person.getPesel() + ", " + person.getAddress();
         st.execute("INSERT INTO Person(Name, Surname, PhoneNumber, Pesel, Address) values(PersonValues)");
     }
+
 
 }
 
