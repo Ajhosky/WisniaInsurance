@@ -1,5 +1,8 @@
 package com.company;
 
+import com.company.menuPanel.Mediator;
+import com.company.menuPanel.MenuPanel;
+import com.company.menuPanel.PolicyListButton;
 import com.company.personDto.Person;
 import com.company.controlers.Connection;
 
@@ -18,8 +21,10 @@ public class Main {
         st.execute("DROP table if exists Person");
 
         st.execute("CREATE table Person(id INTEGER not null constraint Customers_pk primary key autoincrement," +
+                "surname varchar(20),"+
                 "name varchar(20)," +
-                "phone varchar(12)," +
+                "pesel varchar(12)," +
+                "phoneNumber varchar(12),"+
                 "address varchar(30)" +
                 ")");
         st.execute("DROP table if exists Policy");
@@ -35,7 +40,6 @@ public class Main {
                 ")");
 
         st.execute("DROP table if exists Customers");
-
         //COMPANIES TABLE
         st.execute("CREATE table Customers(id INTEGER not null constraint Customers_pk primary key autoincrement," +
                 "name varchar(20)," +
@@ -43,19 +47,27 @@ public class Main {
                 "address varchar(30)" +
                 ")");
         st.close();
-        Person person = new Person("Kowalski","12312312312","Adam","123123123","Warszawa ul.zlota 32a",1);
+        Person person = new Person("Kowalski","Adam","12312312312","123123123","Warszawa ul.zlota 32a", 45);
+        person.insertIntoDb(person);
+
 
 
         // okno menu
-        JPanel panel = new JPanel();
-            JFrame window = new JFrame("Wisnia Insurance menu");
-            window.setBounds(200,200,500,500);
-            window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            window.setVisible(true);
-            window.setResizable(false);
-            panel.setVisible(true);
-            panel.setBackground(Color.black);
-            window.add(panel);
+
+        Mediator mediator = new MenuPanel();
+
+        mediator.registerComponent(new PolicyListButton());
+        mediator.createGUI();
+
+//        JPanel panel = new JPanel();
+//            JFrame window = new JFrame("Wisnia Insurance menu");
+//            window.setBounds(200,200,500,500);
+//            window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//            window.setVisible(true);
+//            window.setResizable(false);
+//            panel.setVisible(true);
+//            panel.setBackground(Color.black);
+//            window.add(panel);panel
 
 
 //        panel.setBounds(0, 0, 400, 400);
