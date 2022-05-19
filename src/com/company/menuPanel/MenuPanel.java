@@ -45,7 +45,7 @@ private List list;
         buttonPanel.add(policyListButton);
         buttonPanel.setLayout(new FlowLayout());
         JPanel listPanel = new JPanel();
-        list.setFixedCellWidth(260);
+       // list.setFixedCellWidth(260);
         listPanel.setSize(320, 470);
         left.add(buttonPanel);
         left.add(listPanel);

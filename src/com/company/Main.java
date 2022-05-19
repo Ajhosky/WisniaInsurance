@@ -48,7 +48,7 @@ public class Main {
                 ")");
         st.close();
         Person person = new Person("Kowalski","Adam","12312312312","123123123","Warszawa ul.zlota 32a", 45);
-        person.insertIntoDb(person);
+       // person.insertIntoDb(person);
 
 
 
