@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.controlers.PersonStruct;
 import com.company.menuPanel.Mediator;
 import com.company.menuPanel.MenuPanel;
 import com.company.menuPanel.PolicyListButton;
@@ -8,56 +9,60 @@ import com.company.controlers.Connection;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.*;
 
 
 public class Main {
     private static String text;
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException {
 
 
-        Statement st = Connection.connect();
-        //PERSON TABLE
-        st.execute("DROP table if exists Person");
-
-        st.execute("CREATE table Person(id INTEGER not null constraint Customers_pk primary key autoincrement," +
-                "surname varchar(20),"+
-                "name varchar(20)," +
-                "pesel varchar(12)," +
-                "phoneNumber varchar(12),"+
-                "address varchar(30)" +
-                ")");
-        st.execute("DROP table if exists Policy");
-
-        //POLICY TABLE
-        st.execute("CREATE table Policy(id INTEGER not null constraint Customers_pk primary key autoincrement," +
-                "policyholder varchar(30)," +
-                "insured varchar(30)," +
-                "beneficiary varchar(30)," +
-                "risk text,"+
-                "contributionAmount int(30),"+
-                "policyType varchar(15)"+
-                ")");
-
-        st.execute("DROP table if exists Customers");
-        //COMPANIES TABLE
-        st.execute("CREATE table Customers(id INTEGER not null constraint Customers_pk primary key autoincrement," +
-                "name varchar(20)," +
-                "phone varchar(12)," +
-                "address varchar(30)" +
-                ")");
-        st.close();
-        Person person = new Person("Kowalski","Adam","12312312312","123123123","Warszawa ul.zlota 32a", 45);
-       // person.insertIntoDb(person);
-
-
-
+        //PersonStruct.insertIntoPerson();
+        //Connection.saveData("Person");
         // okno menu
 
         Mediator mediator = new MenuPanel();
-
         mediator.registerComponent(new PolicyListButton());
         mediator.createGUI();
+//        Statement st = Connection.connect();
+//        //PERSON TABLE
+//        st.execute("DROP table if exists Person");
+//
+//        st.execute("CREATE table Person(id INTEGER not null constraint Customers_pk primary key autoincrement," +
+//                "surname varchar(20),"+
+//                "name varchar(20)," +
+//                "pesel varchar(12)," +
+//                "phoneNumber varchar(12),"+
+//                "address varchar(30)" +
+//                ")");
+//        st.execute("DROP table if exists Policy");
+//
+//        //POLICY TABLE
+//        st.execute("CREATE table Policy(id INTEGER not null constraint Customers_pk primary key autoincrement," +
+//                "policyholder varchar(30)," +
+//                "insured varchar(30)," +
+//                "beneficiary varchar(30)," +
+//                "risk text,"+
+//                "contributionAmount int(30),"+
+//                "policyType varchar(15)"+
+//                ")");
+//
+//        st.execute("DROP table if exists Customers");
+//        //COMPANIES TABLE
+//        st.execute("CREATE table Customers(id INTEGER not null constraint Customers_pk primary key autoincrement," +
+//                "name varchar(20)," +
+//                "phone varchar(12)," +
+//                "address varchar(30)" +
+//                ")");
+//        st.close();
+//        Person person = new Person("Kowalski","Adam","12312312312","123123123","Warszawa ul.zlota 32a", 45);
+//       // person.insertIntoDb(person);
+
+
+
+       ;
 
 //        JPanel panel = new JPanel();
 //            JFrame window = new JFrame("Wisnia Insurance menu");

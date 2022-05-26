@@ -1,10 +1,13 @@
 package com.company.controlers;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import com.company.personDto.Person;
+
+import java.io.*;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 public class Connection {
 
@@ -16,14 +19,26 @@ public class Connection {
         Statement st = con.createStatement();
         return st;
     }
-    public void saveData(String tableName) throws SQLException, ClassNotFoundException, FileNotFoundException {
+    public static void saveData(String tableName) throws SQLException, ClassNotFoundException, FileNotFoundException {
         Statement st = Connection.connect();
-        String Data = String.valueOf(st.execute("SELECT * FROM "+ tableName));
+        String Data = null;
+        ResultSet result = st.executeQuery("SELECT * FROM "+ tableName);
+        while (result.next()){
+            Data += "\n"+ result.getString(1)+"\t"+ result.getString(2)+"\t"+result.getString(3)+"\t"+result.getString(4)+"\t"+result.getString(5)+"\t"+result.getString(6)+"\t"+result.getString(7);
+        }
+        st.close();
+        System.out.println(Data); //teraz zwraca null i nie chce przypisac do niego danych z tabeli
         PrintWriter zapis = new PrintWriter(tableName+".txt");
         zapis.println(Data);
         zapis.close();
     }
 
 
-
+//    public static void saveData(String tableName) throws SQLException, ClassNotFoundException, FileNotFoundException {
+//        Statement st = Connection.connect();
+//        String Data = String.valueOf(st.execute("SELECT * FROM "+ tableName));
+//        PrintWriter zapis = new PrintWriter(tableName+".txt");
+//        zapis.println(Data);
+//        zapis.close();
+//    }
 }
