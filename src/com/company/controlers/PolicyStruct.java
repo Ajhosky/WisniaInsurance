@@ -2,6 +2,7 @@ package com.company.controlers;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 public class PolicyStruct {
 
@@ -20,5 +21,30 @@ public class PolicyStruct {
                 "policyType varchar(15)"+
                 ")");
         st.close();
+    }
+    public static void insertIntoPolicy() throws SQLException, ClassNotFoundException {
+        Statement st = Connection.connect();
+        String policyholder;
+        String insured;
+        String beneficiary;
+        String risk;
+        String contributionAmount;
+        String policyType;
+        System.out.println("Podaj dane do tabeli Policy");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("policyHolder: ");
+        policyholder = scanner.next();
+        System.out.println("insured: ");
+        insured = scanner.next();
+        System.out.println("beneficiary: ");
+        beneficiary = scanner.next();
+        System.out.println("risk: ");
+        risk = scanner.next();
+        System.out.println("contributionAmount: ");
+        contributionAmount = scanner.next();
+        System.out.println("policyType: ");
+        policyType = scanner.next();
+        st.execute("INSERT INTO Person (policyholder, insured, beneficiary, risk, contributionAmount, policyType) values (policyholder,insured,beneficiary,risk,contributionAmount,policyType)");
+
     }
 }
