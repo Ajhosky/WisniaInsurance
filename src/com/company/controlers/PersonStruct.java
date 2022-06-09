@@ -21,6 +21,7 @@ public class PersonStruct {
                 "address varchar(30)," +
                 "age INTEGER,"+
                 ")");
+        st.execute("INSERT INTO Person (surname, name, pesel,phoneNumber, address) values ('Kowalski', 'Jurek', '12345678901','12356789','wisniowa56' )");
         st.close();
     }
     public static void insertIntoPerson() throws SQLException, ClassNotFoundException, IOException {

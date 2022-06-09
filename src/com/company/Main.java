@@ -26,6 +26,7 @@ public class Main {
         Mediator mediator = new MenuPanel();
         mediator.registerComponent(new PolicyListButton());
         mediator.createGUI();
+       // MenuPanel test = new MenuPanel();
 //        Statement st = Connection.connect();
 //        //PERSON TABLE
 //        st.execute("DROP table if exists Person");
